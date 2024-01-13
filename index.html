@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>王燚聃-刘楠欣</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            /*background-color: #f0f0f0;*/
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            perspective: 1500px;
+        }
+
+        #pic {
+            margin-top: 300px;
+            display: flex;
+            width: 50px;
+            height: 150px;
+            transform-style: preserve-3d;
+            animation: action 20s linear infinite;
+        }
+
+        @media screen and (orientation: landscape) {
+            body {
+                /* 横屏时的样式 */
+                background-color: #cccccc;
+                /* 其他样式 */
+            }
+        }
+
+        @keyframes action {
+            from {
+                transform: rotateY(0deg)
+            }
+
+            to {
+                transform: rotateY(360deg)
+            }
+        }
+
+        #pic img {
+            position: absolute;
+            width: 90px;
+            height: 150px;
+            -webkit-box-reflect: below 15px -webkit-linear-gradient(transparent 10%, rgba(255, 255, 255, 0.3));
+        }
+
+            #pic img:nth-child(1) {
+                transform: translateZ(150px);
+            }
+
+            #pic img:nth-child(2) {
+                transform: rotateY(60deg) translateZ(150px);
+            }
+
+            #pic img:nth-child(3) {
+                transform: rotateY(120deg) translateZ(150px);
+            }
+
+            #pic img:nth-child(4) {
+                transform: rotateY(180deg) translateZ(150px);
+            }
+
+            #pic img:nth-child(5) {
+                transform: rotateY(240deg) translateZ(150px);
+            }
+
+            #pic img:nth-child(6) {
+                transform: rotateY(300deg) translateZ(150px);
+            }
+    </style>
+</head>
+<body onclick="playAudio()">
+    <div id="pic">
+        <img src="./1.webp" />
+        <img src="./2.webp" />
+        <img src="./3.webp" />
+        <img src="./4.webp" />
+        <img src="./5.webp" />
+        <img src="./6.webp" />
+    </div>
+
+    <audio id="bgAudio">
+        <source src="xuni.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        function playAudio() {
+            var audio = document.getElementById('bgAudio');
+            audio.play();
+            document.body.removeEventListener('click', playAudio); // Remove event listener after playing once
+        }
+    </script>
+</body>
+</html>
